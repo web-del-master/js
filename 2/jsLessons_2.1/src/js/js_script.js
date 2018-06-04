@@ -17,26 +17,49 @@
 
 for(var a = 0; a < 3; a++){
   var goods = prompt('Какой тип товаров будем продавать?');
-  if((typeof(goods)) === 'string' && (typeof(goods)) != null && goods != '' && goods.length < 50 ){
+  if((typeof(goods)) === 'string' && goods != null && goods != '' && goods.length < 50 ){
     console.log('Все верно!');
     mainList.shopGoods[a] = goods;
+  } else {
+    alert('Заполните форму!');
+    a--;
   };  
 } ; 
 
 
 // Задание для 2ого урока(2 варианта циклов)
+
+// 1
+
 /*var a = 0;
 do{
+
   var goods = prompt('Какой тип товаров будем продавать?');
-  mainList.shopGoods[a] = goods
-  a++
+
+  if((typeof(goods)) === 'string' && goods != null && goods != '' && goods.length < 50 ){    
+    console.log('Все верно!');
+    mainList.shopGoods[a] = goods;
+    a++
+  } else {
+    alert('Заполните форму!');
+  };
+
 }while (a <= 2 );*/
 
+ 
+// 2
+
 /* var a = 0
-while (a < 3){
+while (a < 3){  
   var goods = prompt ('Какой тип товаров будем продавать?');
-  a++
-  mainList.shopGoods[a] = goods;
+
+  if((typeof(goods)) === 'string' && goods != null && goods != '' && goods.length < 50 ){    
+    console.log('Все верно!');
+    mainList.shopGoods[a] = goods;
+    a++
+  } else {
+    alert('Заполните форму!');
+  };
 }; */
 
 

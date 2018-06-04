@@ -34,20 +34,13 @@ var arr = ["3475", "58789", "784112", "455678", "76452", "61567", "1245123"];
 
 
 for (var b = 0; b < arr.length; b++) {
-      switch (b) {
-      case 0:
-        document.write(arr[b] + "<br>");
-        break; 
-      case 2:
-        document.write(arr[b] + "<br>");
-        break; 
-      case 4:
-        document.write(arr[b] + "<br>");
-        break;       
-      default:
-        // statements_def
-        break;
-    };
+
+   var g = arr[b];
+
+// Ура.)))
+   if( g[0] == "3" || g[0] == "7" ){     
+    document.write(arr[b] + "<br>");
+   };
     
  };
 
