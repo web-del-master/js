@@ -62,8 +62,10 @@ workTime();
 
 
 //Считаем бюджет на день 
-let oneDay = youBudget/30;
+function myBudget (){
+      let oneDay = youBudget/30;
       alert('Бюджет на один день '+oneDay);
+    }
 
 price = 50;
 
