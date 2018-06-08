@@ -81,7 +81,7 @@
                 alert( (i+1) + ": " + item + " (массив:" + arr + ")" );
                 })
         for (let key in mainList){
-            alert("Наш магазин включает в себя" + mainList[key]);
+            alert("Наш магазин включает в себя " + key);
           }
       }
 
