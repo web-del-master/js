@@ -55,10 +55,10 @@ function fuExampl (str){
     let i = str.slice(1,50)
     console.log(i + n);
   } else{
-
+      console.log(str)
   }
 }
 
 
-fuExampl("qwertyuioplkjhgfdsazxcvbvnm,kjhgfdsaqwertyhgfdsaqwertyhnhgbad");
+fuExampl("qwertyuio");
 
