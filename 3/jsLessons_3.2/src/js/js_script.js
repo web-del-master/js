@@ -43,3 +43,22 @@ let sq = Math.sqrt(summ);
 console.log(sq);  
 
 
+
+function fuExampl (str){   
+  if (typeof(str) === "string" ){
+  str.trim();
+   }else {
+        console.log("Данные не верны");
+      }
+  if(str.length > 50){
+    let n = "..."
+    let i = str.slice(1,50)
+    console.log(i + n);
+  } else{
+
+  }
+}
+
+
+fuExampl("qwertyuioplkjhgfdsazxcvbvnm,kjhgfdsaqwertyhgfdsaqwertyhnhgbad");
+

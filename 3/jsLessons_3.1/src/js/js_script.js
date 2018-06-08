@@ -71,7 +71,7 @@ price = 50;
 
 function luckyPrice () {
   if(mainList.discount){
-     newPrice = Math.round(price*20/100);
+     newPrice = Math.round(price*80/100);
      alert(newPrice);    
      } else {
             alert('Скидок нет');
