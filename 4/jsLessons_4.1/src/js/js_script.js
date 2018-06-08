@@ -88,8 +88,4 @@
   }  
 
 mainList.shopItems();
-  // for (let key in mainList.shopItems){
-  //   alert("У нас вы можете купить" + mainList.shopItems[key])
-  // }
-
   console.log(mainList);
