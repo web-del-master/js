@@ -52,7 +52,7 @@ function fuExampl (str){
       }
   if(str.length > 50){
     let n = "..."
-    let i = str.slice(1,50)
+    let i = str.slice(0,50)
     console.log(i + n);
   } else{
       console.log(str)
