@@ -1,9 +1,9 @@
 
-console.log(getFriendlyNumbers(1, 1000));
+console.log(getFriendlyNumbers(1, 300));
 
 function getFriendlyNumbers(start, end) {
   let ass = [];  
-  while(start > end || isNaN(start, end) || start % 1 != 0 || end % 1 != 0 || start < 0 || end < 0){
+  while(start > end || isNaN(start, end) || typeof(start, end) != "number" || start % 1 != 0 || end % 1 != 0 || start < 0 || end < 0){
     return false;
   }      
      for (let i = start; i <= end; i++) {
