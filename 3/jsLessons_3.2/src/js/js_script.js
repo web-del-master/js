@@ -9,7 +9,7 @@ var str = "урок-3-был слишком легким";
       document.write(newStr + "<br>");
 
    // Вырезаем слово "Легким"
-      var shutStr = newStr.replace(/им/g, "о");    
+      var shutStr = newStr.slice(19).replace(/им/g, "о");    
       document.write(shutStr + "<br><br>" );
 
 
@@ -46,19 +46,19 @@ console.log(sq);
 
 function fuExampl (str){   
   if (typeof(str) === "string" ){
-  str.trim();
+     var s = str.trim();
    }else {
         console.log("Данные не верны");
       }
-  if(str.length > 50){
+  if(s.length > 50){
     let n = "..."
-    let i = str.slice(0,50)
+    let i = s.slice(0,50)
     console.log(i + n);
   } else{
-      console.log(str)
+      console.log(s)
   }
 }
 
 
-fuExampl("qwertyuio");
+fuExampl("   asdasdasdasdasdasdfasdfasdfasdfasdfasfasfasfasfasfasdfasfsadfsadfsd");
 

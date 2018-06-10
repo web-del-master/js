@@ -78,10 +78,10 @@
         mainList.shopItems.sort();
         mainList.shopItems.forEach(function(item, i, arr) {
                  
-                alert( (i+1) + ": " + item + " (массив:" + arr + ")" );
+                console.log("У нас вы можете купить " + (i+1) + ": " + item);
                 })
         for (let key in mainList){
-            alert("Наш магазин включает в себя " + key);
+            console.log("Наш магазин включает в себя " + key);
           }
       }
 
