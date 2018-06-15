@@ -140,11 +140,13 @@ allPeople[0].addEventListener('change', () => {
    if(allPeople[0].value != ""){
     emp_Btn.disabled = false;
   } 
-})allPeople[1].addEventListener('change', () => {
+})
+allPeople[1].addEventListener('change', () => {
    if(allPeople[1].value != ""){
     emp_Btn.disabled = false;
   } 
-})allPeople[2].addEventListener('change', () => {
+})
+allPeople[2].addEventListener('change', () => {
    if(allPeople[2].value != ""){
     emp_Btn.disabled = false;
   } 
