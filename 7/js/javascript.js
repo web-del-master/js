@@ -46,7 +46,34 @@ emp_Btn.disabled = true;
             disValue.style.backgroundColor = 'red';
          }
  });
- 
+
+ CategoriGoods[0].addEventListener('change', () =>{
+    if(CategoriGoods[0].value != ""){
+      goods_Btn.disabled = false;
+    }else {
+      goods_Btn.disabled = true;
+    }
+ }); CategoriGoods[1].addEventListener('change', () =>{
+    if(CategoriGoods[1].value != ""){
+      goods_Btn.disabled = false;
+    }else {
+      goods_Btn.disabled = true;
+    }
+ }); CategoriGoods[2].addEventListener('change', () =>{
+    if(CategoriGoods[2].value != ""){
+      goods_Btn.disabled = false;
+    }else {
+      goods_Btn.disabled = true;
+    }
+ }); CategoriGoods[3].addEventListener('change', () =>{
+    if(CategoriGoods[3].value != ""){
+      goods_Btn.disabled = false;
+    }else {
+      goods_Btn.disabled = true;
+    }
+ })
+
+
  goods_Btn.addEventListener('click', () => {                  
                   for(let a = 0; a < CategoriGoods.length; a++){
                  
@@ -83,9 +110,8 @@ getTime.addEventListener('change', () =>{
              } else if (time > 8 && time < 20){
                    console.log('Время работать!');
                    mainList.open = true;
-                    goods_Btn.disabled = false;
-                budget_Btn.disabled = false;
-                emp_Btn.disabled = false;
+                   
+                budget_Btn.disabled = false;                
                 btn.disabled = false;
                 } else if (time < 24) {
                         console.log('Уже слишком поздно!');
@@ -110,7 +136,19 @@ budget_Btn.addEventListener('click', () =>{
     
   
 })
-
+allPeople[0].addEventListener('change', () => {
+   if(allPeople[0].value != ""){
+    emp_Btn.disabled = false;
+  } 
+})allPeople[1].addEventListener('change', () => {
+   if(allPeople[1].value != ""){
+    emp_Btn.disabled = false;
+  } 
+})allPeople[2].addEventListener('change', () => {
+   if(allPeople[2].value != ""){
+    emp_Btn.disabled = false;
+  } 
+})
 emp_Btn.addEventListener('click', () =>{
                       for(let i = 0; i < allPeople.length; i++){
                         let nameEmployers = allPeople[i].value;                        
