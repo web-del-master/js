@@ -12,7 +12,7 @@ parent[0].appendChild(i);
 
 //Заменить картинку заднего фона на другую из папки img
 let replaceImg = document.getElementsByTagName("body");
-replaceImg[0].style.background = 'url(../img/apple_true.jpg) center no-repeat';
+replaceImg[0].style.background = 'url(./img/apple_true.jpg) center no-repeat';
 
 // Поменять заголовок, добавить слово "подлинную"
 let replaceTitle = document.getElementById("title");

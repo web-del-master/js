@@ -1,3 +1,25 @@
+//    Получить кнопку "Открыть магазин" через id
+ let btn = document.getElementById("open-btn");
+ // Получить все поля в левом меню через классы
+ let nameStoreValue = document.getElementsByClassName("name-value"),
+     youBudgetValue = document.getElementsByClassName("budget-value"),
+     shopGoodsCategori = document.getElementsByClassName("goods-value"),
+     shopGoodsItems = document.getElementsByClassName("items-value"),
+     emploiersValue = document.getElementsByClassName("employers-value"),
+     disValue = document.getElementsByClassName("discount-value"),
+     isOpen = document.getElementsByClassName("isopen-value");
+ // Получить поля категории товаров через класс
+ let CategoriGoods = document.getElementsByClassName("goods-item");
+ // Получить все 3 кнопки через Tag
+  let goods_Btn = document.getElementsByTagName("button")[1];
+  let budget_Btn = document.getElementsByTagName("button")[2];
+  let emp_Btn = document.getElementsByTagName("button")[3];
+//  Получить поля ввода товаров, времени и расчета бюджета через querySelector 
+ let chooseGoods = document.querySelector(".choose-item"),
+     getTime = document.querySelector(".time-value"),
+     getBudget = document.querySelector(".count-budget-value");
+// Получить поля имен сотрудников через querySelectorAll
+ let allPeople = document.querySelectorAll(".hire-employers-item");
 //Собираем данные клиента
   let youBudget,
       nameStore,
@@ -91,34 +113,3 @@
   
 
 
-//    Получить кнопку "Открыть магазин" через id
- let btn = document.getElementById("open-btn");
-
-  // Получить все поля в левом меню через классы
- let nameStoreValue = document.getElementsByClassName("name-value"),
-     youBudgetValue = document.getElementsByClassName("budget-value"),
-     shopGoodsCategori = document.getElementsByClassName("goods-value"),
-     shopGoodsItems = document.getElementsByClassName("items-value"),
-     emploiersValue = document.getElementsByClassName("employers-value"),
-     disValue = document.getElementsByClassName("discount-value"),
-     isOpen = document.getElementsByClassName("isopen-value");
-
- // Получить поля категории товаров через класс
- let CategoriGoods = document.getElementsByClassName("goods-item");
-
- // Получить все 3 кнопки через Tag
-  let allBtn = document.getElementsByTagName("button");
-
-
-//  Получить поля ввода товаров, времени и расчета бюджета через querySelector
- 
- let chooseGoods = document.querySelector(".choose-item"),
-     getTime = document.querySelector(".time-value"),
-     getBudget = document.querySelector(".count-budget-value");
-
-// Получить поля имен сотрудников через querySelectorAll
-
-    let allPeople = document.querySelectorAll(".hire-employers-item");
-
-
- console.log(allPeople)
