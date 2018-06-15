@@ -86,6 +86,7 @@ getTime.addEventListener('change', () =>{
                     goods_Btn.disabled = false;
                 budget_Btn.disabled = false;
                 emp_Btn.disabled = false;
+                btn.disabled = false;
                 } else if (time < 24) {
                         console.log('Уже слишком поздно!');
                         mainList.open = false;
