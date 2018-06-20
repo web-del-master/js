@@ -81,9 +81,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
           if(t.total <= 0){
             clearInterval(timeInterval);
-            hours.innerHTML = 0;
-            minutes.innerHTML = 0;
-            seconds.innerHTML = 0;
+            hours.innerHTML = '00';
+            minutes.innerHTML = '00';
+            seconds.innerHTML = '00';
             } 
   	    };       
 
