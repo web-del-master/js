@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', () => {
 	let tab = document.getElementsByClassName('info-header-tab'),
 	    tab_content = document.getElementsByClassName('info-tabcontent'),
 	    info = document.getElementsByClassName('info-header')[0];
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	})	
 // Timer
 
-  let deadline = '2018-06-18';
+  let deadline = '2018-06-22';
 
   function getTimeRemaining(endtime){
   	let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -62,17 +62,17 @@ window.addEventListener('DOMContentLoaded', function(){
   	    	// minutes.innerHTML = t.minutes;
   	    	// seconds.innerHTML = t.seconds;
           if(t.hours < 10){
-            hours.innerHTML = '0' + t.hours;
+            hours.innerHTML = `0 ${t.hours}`;
           } else {
             hours.innerHTML = t.hours;
           }; 
           if(t.minutes< 10){
-            minutes.innerHTML = '0' + t.minutes;
+            minutes.innerHTML = `0 ${t.minutes}`;
           } else {
             minutes.innerHTML = t.minutes;
           } ;
           if(t.seconds < 10){
-            seconds.innerHTML = '0' + t.seconds;
+            seconds.innerHTML = `0 ${t.seconds}`;
           } else {
             seconds.innerHTML = t.seconds;
           };
@@ -98,15 +98,15 @@ window.addEventListener('DOMContentLoaded', function(){
   let more = document.querySelector('.more'),
       overlay = document.querySelector('.overlay'),
       close =  document.querySelector('.popup-close');
-  more.addEventListener('click', function(){
+  more.addEventListener('click', () => {
      this.classList.add('more-splash');
-     overlay.style.display = "block" 
-     document.body.style.overflow = "hidden"    
+     overlay.style.display = "block" ;
+     document.body.style.overflow = "hidden" ;   
   });    
-close.addEventListener('click', function(){
+close.addEventListener('click', () => {
   overlay.style.display = "none" ;
   more.classList.remove('more-splash');
-  document.body.style.overflow = "" 
+  document.body.style.overflow = "" ;
 });
 
 let desc_btn = document.getElementsByClassName("description-btn");
