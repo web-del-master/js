@@ -107,5 +107,17 @@ close.addEventListener('click', function(){
   overlay.style.display = "none" ;
   more.classList.remove('more-splash');
   document.body.style.overflow = "" 
-})	    
+});
+
+let desc_btn = document.getElementsByClassName("description-btn");
+
+for(let i = 0; i< desc_btn.length; i++){  
+  desc_btn[i].addEventListener('click', () => {  
+     more.classList.add('more-splash');
+     overlay.style.display = "block" ;
+     document.body.style.overflow = "hidden" ;
+     })
+  }
+
+   
 })

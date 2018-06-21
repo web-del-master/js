@@ -1,13 +1,17 @@
 window.addEventListener('DOMContentLoaded', function(){ 
 
 
-btn.addEventListener('click', function () { 
-let age = document.getElementById('age');
-let nameUser = document.querySelector('#name');
-let surname = document.querySelector('#surname');
-let btn = document.getElementById('btn'); 
-         alert("Пользователь " + surname.value + " " + nameUser.value + ", его возраст " + age.value);
-} );
 
+
+ let nameUser = document.querySelector('#name');
+ let surname = document.querySelector('#surname');
+ let age = document.getElementById('age');
+ let btn = document.getElementById('btn'); 
+ 
+function showUser(surname, name) {
+         alert("Пользователь " + surname.value + " " + name.value + ", его возраст " + this.value);
+}
+ 
+showUser.call(age, surname, nameUser)
 
 });
