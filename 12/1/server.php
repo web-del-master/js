@@ -4,6 +4,7 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
+$name = $_POST['user_name'];
 $phone = $_POST['user_phone'];
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -27,7 +28,7 @@ $mail->addAddress('serezha-kuznetsov@inbox.ru');     // Кому будет ух
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = 'телефон ' .$phone;
+$mail->Body    = 'телефон ' .$phone. $name;
 $mail->AltBody = '';
 
 ?>

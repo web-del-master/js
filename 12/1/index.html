@@ -162,20 +162,20 @@
 				</div>
 				<div class="counter-total">
 					Общая сумма<br>
-					<span id="total">20456</span>
+					<span id="total"></span>
 				</div>
 			</div>
 			<div class="contact" id="contacts">
 				<div class="contact-img">
-					<img src="img/letter.png" alt="letter">
+					<!-- <img src="img/letter.png" alt="letter"> -->
 				</div>
 				<div class="contact-form">
 					<div class="contact-form-title">
 						Мы с вами свяжемся
 					</div>
-					<form id="form">
-						<input required type="email" placeholder="Ваша почта">
-						<input required type="tel" placeholder="Ваш телефон">
+					<form action="server.php" method="POST" id="form">
+						<input required type="email" name="user_name" placeholder="Ваша почта">
+						<input required type="tel" name="user_phone" placeholder="Ваш телефон">
 						<button type="submit">Отправить</button>
 					</form>
 				</div>
@@ -215,7 +215,7 @@
 				<div class="popup-title">
 				Форма обратной связи</div>
 					<div class="popup-form">	
-						<form action="server.php" class="main-form">
+						<form action="server.php" method="POST" class="main-form">
 							<div class="popup-form-header">
 								Узнайте больше о своём отдыхе
 							</div>
@@ -223,7 +223,7 @@
 								Введите ваш номер телефона:
 								</label>
 								<input class="popup-form__input" name="user_phone" type="tel" required placeholder="+7(978) 973 33 45">
-								<button class="button popup-form__btn">
+								<button type="submit" class="button popup-form__btn">
 									Оставить заявку!
 								</button>
 						</form>
