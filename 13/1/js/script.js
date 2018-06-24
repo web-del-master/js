@@ -255,7 +255,7 @@ let inputCulc = document.getElementsByClassName('counter-block-input')
 for(let i = 0; i < inputCulc.length; i++){
   inputCulc[i].addEventListener('keypress', function() {
         setTimeout(() => {
-            var res = /[^1-9]/g.exec(this.value);
+            var res = /[^0-9]/g.exec(this.value);
             this.value = this.value.replace(res, '');
         }, 0);
     });
