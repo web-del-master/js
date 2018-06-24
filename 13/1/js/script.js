@@ -279,7 +279,7 @@ for(let i = 0; i < inputCulc.length; i++){
        persons.addEventListener('change', function(){
            personeSum = +this.value
             total =(daysSum + personeSum)*4000 
-            if(restDay.value == ''){
+            if(restDay.value == '' || persons.value == ''){
               totalValue.innerHTML = 0;
             } else {
               totalValue.innerHTML = total;
@@ -289,7 +289,7 @@ for(let i = 0; i < inputCulc.length; i++){
        restDay.addEventListener('change', function(){
            daysSum = +this.value
            total =(daysSum + personeSum)*4000
-           if(persons.value == ''){
+           if(restDay.value == '' || persons.value == ''){
             totalValue.innerHTML = 0;
            } else {
             totalValue.innerHTML = total;
