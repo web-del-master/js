@@ -1,4 +1,4 @@
-export default function timer(){
+function timer(){
 	let deadline = '2018-06-22';
 
   function getTimeRemaining(endtime){
@@ -58,3 +58,4 @@ export default function timer(){
 
   setClock('timer', deadline);
 }
+module.exports = timer;

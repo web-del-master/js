@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 })
 },{"../modules/calck.js":2,"../modules/modal.js":3,"../modules/slids.js":4,"../modules/timer.js":5,"../modules/tub.js":6}],2:[function(require,module,exports){
-function culck(){
+ function calck(){
 	let inputCulc = document.getElementsByClassName('counter-block-input')
 
 for(let i = 0; i < inputCulc.length; i++){
@@ -72,7 +72,7 @@ for(let i = 0; i < inputCulc.length; i++){
       })
 }
 
-module.exports = culck;
+module.exports = calck;
 },{}],3:[function(require,module,exports){
 function modal (){
 	  // Модальное окно
@@ -180,11 +180,11 @@ for(let i = 0; i< desc_btn.length; i++){
       // очищаем поля ввода
      }
  });
-};
+}
 
 module.exports = modal;
 },{}],4:[function(require,module,exports){
-function slides(){
+ function slids(){
   let sliderIndex = 1,
        slides = document.getElementsByClassName('slider-item'),
        prev = document.querySelector('.prev'),
@@ -235,10 +235,9 @@ function slides(){
          }
        });
 }
-
-module.exports = slides;
+module.exports = slids;
 },{}],5:[function(require,module,exports){
-function timerMy(){
+function timer(){
 	let deadline = '2018-06-22';
 
   function getTimeRemaining(endtime){
@@ -298,8 +297,7 @@ function timerMy(){
 
   setClock('timer', deadline);
 }
-
-module.exports = timerMy;
+module.exports = timer;
 },{}],6:[function(require,module,exports){
 function tub(){
 		let tab = document.getElementsByClassName('info-header-tab'),
@@ -336,6 +334,5 @@ function tub(){
 		};
 	});
 }
-
 module.exports = tub;
 },{}]},{},[1]);

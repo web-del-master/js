@@ -1,4 +1,4 @@
-export default function modal (){
+function modal (){
 	  // Модальное окно
 
   let more = document.querySelector('.more'),
@@ -104,4 +104,6 @@ for(let i = 0; i< desc_btn.length; i++){
       // очищаем поля ввода
      }
  });
-};
+}
+
+module.exports = modal;

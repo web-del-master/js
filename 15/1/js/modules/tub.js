@@ -1,4 +1,4 @@
-export default function tub(){
+function tub(){
 		let tab = document.getElementsByClassName('info-header-tab'),
 	    tab_content = document.getElementsByClassName('info-tabcontent'),
 	    info = document.getElementsByClassName('info-header')[0];
@@ -33,3 +33,4 @@ export default function tub(){
 		};
 	});
 }
+module.exports = tub;

@@ -1,4 +1,4 @@
-export default function slids(){
+ function slids(){
   let sliderIndex = 1,
        slides = document.getElementsByClassName('slider-item'),
        prev = document.querySelector('.prev'),
@@ -49,3 +49,4 @@ export default function slids(){
          }
        });
 }
+module.exports = slids;

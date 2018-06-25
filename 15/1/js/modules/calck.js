@@ -1,4 +1,4 @@
- export default function calck(){
+ function calck(){
 	let inputCulc = document.getElementsByClassName('counter-block-input')
 
 for(let i = 0; i < inputCulc.length; i++){
@@ -55,3 +55,4 @@ for(let i = 0; i < inputCulc.length; i++){
       })
 }
 
+module.exports = calck;
