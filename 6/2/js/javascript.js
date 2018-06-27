@@ -22,7 +22,7 @@ let myTime = setInterval(newTime, 1000);
 function myDate (){
   let date = new Date();
   let days = date.getDate(),
-      month = date.getMonth(),
+      month = date.getMonth()+1,
       year = date.getFullYear();
        if(days < 10){
           days = "0" + days;    
