@@ -5,15 +5,15 @@ function modalGift (){
      popupClose = document.getElementsByClassName("popup-close");
 
      fixedGift.addEventListener('click', () => {
-      modalTop.style.display = "block";       
+      modalTop.style.display = "block";
+      modalTop.style.zIndex = "99";       
       fixedGift.style.display = "none";       
      });
     
 // Назвначаем всем крестикам обработчик событий закрыть
     for(let b = 0; b < popupClose.length; b++){
     	popupClose[b].addEventListener('click', () => {
-        modalTop.style.display = "none";
-        fixedGift.style.display = "block";
+        modalTop.style.display = "none";        
         windowModalDesign.style.display = 'none';
         modalBtnConsultation.style.display = 'none';              
      });}
@@ -26,6 +26,7 @@ function modalGift (){
       for(let i = 0; i < modalDesign.length; i++){
       	modalDesign[i].addEventListener('click', ()=>{
         windowModalDesign.style.display = 'block';
+        windowModalDesign.style.zIndex = "99";
       })}
 
  // Модальное окно button-consultation 
@@ -35,6 +36,7 @@ function modalGift (){
         for(let i = 0; i < btnConsultation.length; i++){
         	btnConsultation[i].addEventListener('click', ()=>{
         		modalBtnConsultation.style.display = 'block';
+        		modalBtnConsultation.style.zIndex = "99";
         	})
         }
 };

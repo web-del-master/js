@@ -843,6 +843,7 @@ h4 {
 }
 .feedback-slider-item {
   padding-bottom: 5rem;
+
 }
 .feedback-block {
   position: relative;
@@ -851,7 +852,7 @@ h4 {
   position: absolute;
   bottom: -3rem;
   left: 15rem;
-  z-index: 1000000;
+  z-index: 80;
 }
 .feedback-block .button-order:before {
   content: '';
