@@ -59,7 +59,9 @@ h3,
 h4 {
   font-family: 'Circe Extra Bold', sans-serif;
 }
-
+.press{
+  
+}
 .active + .accords-none{
   display:block;
 }

@@ -5,9 +5,10 @@ function modalGift (){
      popupClose = document.getElementsByClassName("popup-close");
 
      fixedGift.addEventListener('click', () => {
-      modalTop.style.display = "block";
+      modalTop.style.display = "block";      
       modalTop.style.zIndex = "99";       
-      fixedGift.style.display = "none";       
+      fixedGift.style.display = "none";
+      clearInterval(scrolTime);       
      });
     
 // Назвначаем всем крестикам обработчик событий закрыть
@@ -24,9 +25,10 @@ function modalGift (){
       windowModalDesign = document.querySelector('.popup-design');
       
       for(let i = 0; i < modalDesign.length; i++){
-      	modalDesign[i].addEventListener('click', ()=>{
-        windowModalDesign.style.display = 'block';
+      	modalDesign[i].addEventListener('click', ()=>{        
+        windowModalDesign.style.display = 'block';        
         windowModalDesign.style.zIndex = "99";
+        clearInterval(scrolTime);
       })}
 
  // Модальное окно button-consultation 
@@ -35,8 +37,9 @@ function modalGift (){
         
         for(let i = 0; i < btnConsultation.length; i++){
         	btnConsultation[i].addEventListener('click', ()=>{
-        		modalBtnConsultation.style.display = 'block';
+        		modalBtnConsultation.style.display = 'block';        		
         		modalBtnConsultation.style.zIndex = "99";
+        		clearInterval(scrolTime);
         	})
         }
    let modal60 =  setTimeout(modal60sec,75000);
@@ -45,6 +48,23 @@ function modalGift (){
         		modalBtnConsultation.style.zIndex = "95";
         		clearTimeout(modal60);
         };
+
+     
+    let scrolTime = setInterval(scrolling, 1000);    
+
+    function scrolling (){
+    
+         	
+        let a = window.pageYOffset;
+       if(a > 11500){
+       	 modalTop.style.display = "block";
+         modalTop.style.zIndex = "99";       
+         fixedGift.style.display = "none";
+         clearInterval(scrolTime);
+       }           
+    }
+     
+        
     };
 
 module.exports = modalGift;
