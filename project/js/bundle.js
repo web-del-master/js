@@ -69,6 +69,12 @@
           modalBtnConsultation.style.zIndex = "99";
         });
       }
+      var modal60 = setTimeout(modal60sec, 75000);
+      function modal60sec() {
+        modalBtnConsultation.style.display = 'block';
+        modalBtnConsultation.style.zIndex = "95";
+        clearTimeout(modal60);
+      };
     };
 
     module.exports = modalGift;
