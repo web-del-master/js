@@ -21,13 +21,17 @@
       var modalGift = require('../js/modules/modalGift.js');
       var sliderDown = require('../js/modules/sliderDown.js');
       var accords = require('../js/modules/accords.js');
+      var showall = require('../js/modules/showall.js');
+      var sizeimg = require('../js/modules/sizeimg.js');
 
       sliderTop();
       modalGift();
       sliderDown();
       accords();
+      showall();
+      sizeimg();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/modalGift.js": 3, "../js/modules/sliderDown.js": 4, "../js/modules/sliderTop.js": 5 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/modalGift.js": 3, "../js/modules/showall.js": 4, "../js/modules/sizeimg.js": 5, "../js/modules/sliderDown.js": 6, "../js/modules/sliderTop.js": 7 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -75,12 +79,15 @@
       // Модальное окно button-design
 
       var modalDesign = document.querySelectorAll('.button-design'),
-          windowModalDesign = document.querySelector('.popup-design');
+          windowModalDesign = document.querySelector('.popup-design'),
+          windowpopup = document.querySelector('.popup-content');
 
       for (var i = 0; i < modalDesign.length; i++) {
         modalDesign[i].addEventListener('click', function () {
           windowModalDesign.style.display = 'block';
-          windowModalDesign.style.zIndex = "99";
+          windowpopup.style.display = 'block';
+          windowpopup.style.zIndex = "99";
+          windowpopup.style.position = "fixed";
           clearInterval(scrolTime);
         });
       }
@@ -96,6 +103,18 @@
           clearInterval(scrolTime);
         });
       }
+
+      window.addEventListener('click', function (event) {
+        if (event.target == windowModalDesign) {
+          windowModalDesign.style.display = 'none';
+        }
+        if (event.target == modalTop) {
+          modalTop.style.display = "none";
+        }
+        if (event.target == modalBtnConsultation) {
+          modalBtnConsultation.style.display = 'none';
+        }
+      });
       var modal60 = setTimeout(modal60sec, 75000);
       function modal60sec() {
         modalBtnConsultation.style.display = 'block';
@@ -119,6 +138,35 @@
 
     module.exports = modalGift;
   }, {}], 4: [function (require, module, exports) {
+    function showall() {
+      var styleBtn = document.querySelector('.button-transparent');
+      var elem = document.getElementsByClassName('styles-2');
+
+      styleBtn.addEventListener('click', function () {
+        styleBtn.style.display = 'none';
+        for (var i = 0; i < elem.length; i++) {
+          elem[i].classList.remove("hidden-lg");
+          elem[i].classList.remove("hidden-md");
+          elem[i].classList.remove("hidden-sm");
+          elem[i].classList.remove("hidden-xs");
+          elem[i].classList.add("col-sm-3");
+          elem[i].classList.add("col-sm-offset-0");
+          elem[i].classList.add("col-xs-10");
+          elem[i].classList.add("col-xs-offset-1");
+        }
+      });
+    }
+    module.exports = showall;
+  }, {}], 5: [function (require, module, exports) {
+    function sizeimg() {
+
+      var size1 = document.querySelector('.size-1');
+      size1.addEventListener('mouseover', function () {
+        size1.setAttribute("src", "../img/sizes-1-1.png");
+      });
+    }
+    module.exports = sizeimg;
+  }, {}], 6: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -210,7 +258,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {

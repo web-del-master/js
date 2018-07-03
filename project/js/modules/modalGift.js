@@ -22,14 +22,20 @@ function modalGift (){
 // Модальное окно button-design
 
   let modalDesign = document.querySelectorAll('.button-design'),
-      windowModalDesign = document.querySelector('.popup-design');
+      windowModalDesign = document.querySelector('.popup-design'),
+      windowpopup = document.querySelector('.popup-content');
       
       for(let i = 0; i < modalDesign.length; i++){
       	modalDesign[i].addEventListener('click', ()=>{        
         windowModalDesign.style.display = 'block';        
-        windowModalDesign.style.zIndex = "99";
+        windowpopup.style.display = 'block';        
+        windowpopup.style.zIndex = "99";
+        windowpopup.style.position = "fixed";
         clearInterval(scrolTime);
       })}
+
+
+
 
  // Модальное окно button-consultation 
     let btnConsultation = document.querySelectorAll('.button-consultation'),
@@ -42,6 +48,19 @@ function modalGift (){
         		clearInterval(scrolTime);
         	})
         }
+
+        	window.addEventListener('click', function(event){
+			  if (event.target == windowModalDesign) {
+			    windowModalDesign.style.display = 'none';
+			  }
+			  if (event.target == modalTop) {
+			    modalTop.style.display = "none";
+			  } 
+			  if (event.target == modalBtnConsultation) {
+			    modalBtnConsultation.style.display = 'none';
+			  }
+
+			});
    let modal60 =  setTimeout(modal60sec,75000);
         function modal60sec (){        	
         	    modalBtnConsultation.style.display = 'block';
