@@ -12,6 +12,7 @@ function sizeimg (){
 	    	sizeelem[0].querySelector('.final-price').style.display = "none";
 	    	   	
 	    })
+	    
 
 	    window.addEventListener('mouseover', ()=>{
 	    	if(event.target == sizeWrapper){
