@@ -25,6 +25,7 @@
       var sizeimg = require('../js/modules/sizeimg.js');
       var filter = require('../js/modules/filter.js');
       var culck = require('../js/modules/culck.js');
+      var burger = require('../js/modules/burger.js');
 
       sliderTop();
       modalGift();
@@ -34,8 +35,9 @@
       sizeimg();
       filter();
       culck();
+      burger();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/culck.js": 3, "../js/modules/filter.js": 4, "../js/modules/modalGift.js": 5, "../js/modules/showall.js": 6, "../js/modules/sizeimg.js": 7, "../js/modules/sliderDown.js": 8, "../js/modules/sliderTop.js": 9 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/burger.js": 3, "../js/modules/culck.js": 4, "../js/modules/filter.js": 5, "../js/modules/modalGift.js": 6, "../js/modules/showall.js": 7, "../js/modules/sizeimg.js": 8, "../js/modules/sliderDown.js": 9, "../js/modules/sliderTop.js": 10 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -60,6 +62,17 @@
     }
     module.exports = accords;
   }, {}], 3: [function (require, module, exports) {
+    function burger() {
+      var btnBurg = document.querySelector('.burger'),
+          menuBurg = document.querySelectorAll('#menuBurg');
+
+      btnBurg.addEventListener('click', function () {
+        if (window.innerWith <= 768) {
+          menuBurg.style.display = "block";
+        }
+      });
+    }module.exports = burger;
+  }, {}], 4: [function (require, module, exports) {
     function culck() {
       var sizePic = document.getElementById('size'),
           materialPic = document.getElementById('material'),
@@ -96,8 +109,8 @@
 
       function salePrice() {
         if (!(cul == 0)) {
-          var cost = h + r + n - (h + r + n) / 100 * 30;
-          calcPrice.innerHTML = cost;
+          var _cost = h + r + n - (h + r + n) / 100 * 30;
+          calcPrice.innerHTML = _cost;
           calcPrice.style.fontWeight = '700';
           calcPrice.style.fontSize = '50px';
         }
@@ -130,10 +143,16 @@
       promocode.addEventListener('change', function () {
         if (promocode.value === 'IWANTPOPART') {
           salePrice();
+        } else {
+          cost = h + r + n;
+          calcPrice.innerHTML = cost;
+          calcPrice.style.fontWeight = '700';
+          calcPrice.style.fontSize = '50px';
+          cul = cost;
         }
       });
     }module.exports = culck;
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 5: [function (require, module, exports) {
     function filter() {
 
       var getAll = document.querySelectorAll('.portfolio-block'),
@@ -206,7 +225,7 @@
         filters(guy, "guy");
       });
     }module.exports = filter;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 6: [function (require, module, exports) {
     function modalGift() {
       // Моджальное окно с подарком 
       var modalTop = document.querySelector(".popup-gift"),
@@ -290,7 +309,7 @@
     };
 
     module.exports = modalGift;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     function showall() {
       var styleBtn = document.querySelector('.button-transparent');
       var elem = document.getElementsByClassName('styles-2');
@@ -310,7 +329,7 @@
       });
     }
     module.exports = showall;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     function sizeimg() {
 
       var sizeelem = document.querySelectorAll('.sizes-block');
@@ -383,7 +402,7 @@
       });
     }
     module.exports = sizeimg;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -475,7 +494,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {

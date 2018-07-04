@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let sizeimg  = require('../js/modules/sizeimg.js');
     let filter  = require('../js/modules/filter.js');
     let culck  = require('../js/modules/culck.js');
+    let burger  = require('../js/modules/burger.js');
     
     sliderTop();
     modalGift();
@@ -17,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     sizeimg();
     filter();
     culck();
+    burger();
 
 
 
