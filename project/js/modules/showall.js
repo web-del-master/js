@@ -12,7 +12,7 @@ function showall (){
       		elem[i].classList.add("col-sm-3")
       		elem[i].classList.add("col-sm-offset-0")
       		elem[i].classList.add("col-xs-10")
-      		elem[i].classList.add("col-xs-offset-1")
+      		elem[i].classList.add("col-xs-offset-1")      		
       	}
       })
 

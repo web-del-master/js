@@ -62,7 +62,11 @@ h4 {
 .press{
 
 }
+.active{
+  color:#CE37C5;
+}
 .active + .accords-none{
+  margin-top: -50px;
   display:block;
   z-index:10;
 }
@@ -913,8 +917,9 @@ h4 {
 .often-questions .accordion-heading span {
   border-bottom: 2px dotted #333;
 }
-.often-questions .accordion-block {  
-  margin-top: 6rem;
+.often-questions .accordion-block {
+  margin-bottom: 20px;  
+  margin-top: 2rem;
   background-color: #f7e7e6;
   padding: 3rem 4rem;
 }
