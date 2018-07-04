@@ -23,6 +23,7 @@
       var accords = require('../js/modules/accords.js');
       var showall = require('../js/modules/showall.js');
       var sizeimg = require('../js/modules/sizeimg.js');
+      var filter = require('../js/modules/filter.js');
 
       sliderTop();
       modalGift();
@@ -30,8 +31,9 @@
       accords();
       showall();
       sizeimg();
+      filter();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/modalGift.js": 3, "../js/modules/showall.js": 4, "../js/modules/sizeimg.js": 5, "../js/modules/sliderDown.js": 6, "../js/modules/sliderTop.js": 7 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/filter.js": 3, "../js/modules/modalGift.js": 4, "../js/modules/showall.js": 5, "../js/modules/sizeimg.js": 6, "../js/modules/sliderDown.js": 7, "../js/modules/sliderTop.js": 8 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -56,6 +58,79 @@
     }
     module.exports = accords;
   }, {}], 3: [function (require, module, exports) {
+    function filter() {
+
+      var getAll = document.querySelectorAll('.portfolio-block'),
+          btnAll = document.querySelector('.all'),
+          lovers = document.querySelector('.lovers'),
+          chef = document.querySelector('.chef'),
+          girl = document.querySelector('.girl'),
+          guy = document.querySelector('.guy'),
+          grandmother = document.querySelector('.grandmother'),
+          granddad = document.querySelector('.granddad'),
+          portfolioNo = document.querySelector('.portfolio-no'),
+          serch = document.querySelectorAll('.serch');
+
+      function serchAll() {
+        for (var i = 0; i < serch.length; i++) {
+          if (serch[i].classList.contains("active")) {
+            serch[i].classList.remove("active");
+          }
+        }
+      }
+
+      function filters(n, b) {
+        serchAll();
+        n.classList.add('active');
+        portfolioNo.style.display = 'none';
+        for (var i = 0; i < getAll.length; i++) {
+          getAll[i].style.display = "none";
+        }
+        for (var _i2 = 0; _i2 < getAll.length; _i2++) {
+          if (getAll[_i2].classList.contains(b)) {
+            getAll[_i2].style.display = "block";
+          }
+        }
+      }
+
+      // портрет для дедушки
+      granddad.addEventListener('click', function () {
+        for (var i = 0; i < getAll.length; i++) {
+          getAll[i].style.display = "none";
+        }
+        serchAll();
+        granddad.classList.add('active');
+        portfolioNo.style.display = 'block';
+      });
+      // портрет для бабушки
+      grandmother.addEventListener('click', function () {
+        for (var i = 0; i < getAll.length; i++) {
+          getAll[i].style.display = "none";
+        }
+        serchAll();
+        grandmother.classList.add('active');
+        portfolioNo.style.display = 'block';
+      });
+      // показываем все элементы на странице
+      btnAll.addEventListener('click', function () {
+        filters(btnAll, "portfolio-block");
+      });
+
+      lovers.addEventListener('click', function () {
+        filters(lovers, "lovers");
+      });
+
+      chef.addEventListener('click', function () {
+        filters(chef, "chef");
+      });
+      girl.addEventListener('click', function () {
+        filters(girl, "girl");
+      });
+      guy.addEventListener('click', function () {
+        filters(guy, "guy");
+      });
+    }module.exports = filter;
+  }, {}], 4: [function (require, module, exports) {
     function modalGift() {
       // Моджальное окно с подарком 
       var modalTop = document.querySelector(".popup-gift"),
@@ -98,8 +173,8 @@
       var btnConsultation = document.querySelectorAll('.button-consultation'),
           modalBtnConsultation = document.querySelector('.popup-consultation');
 
-      for (var _i2 = 0; _i2 < btnConsultation.length; _i2++) {
-        btnConsultation[_i2].addEventListener('click', function () {
+      for (var _i3 = 0; _i3 < btnConsultation.length; _i3++) {
+        btnConsultation[_i3].addEventListener('click', function () {
           modalBtnConsultation.style.display = 'block';
           modalBtnConsultation.style.zIndex = "99";
           clearInterval(scrolTime);
@@ -139,7 +214,7 @@
     };
 
     module.exports = modalGift;
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 5: [function (require, module, exports) {
     function showall() {
       var styleBtn = document.querySelector('.button-transparent');
       var elem = document.getElementsByClassName('styles-2');
@@ -159,7 +234,7 @@
       });
     }
     module.exports = showall;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 6: [function (require, module, exports) {
     function sizeimg() {
 
       var sizeelem = document.querySelectorAll('.sizes-block');
@@ -232,7 +307,7 @@
       });
     }
     module.exports = sizeimg;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -324,7 +399,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {

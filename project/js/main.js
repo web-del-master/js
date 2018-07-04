@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let accords  = require('../js/modules/accords.js');
     let showall  = require('../js/modules/showall.js');
     let sizeimg  = require('../js/modules/sizeimg.js');
+    let filter  = require('../js/modules/filter.js');
     
     sliderTop();
     modalGift();
@@ -13,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     accords();
     showall();
     sizeimg();
+    filter();
 
 
 
