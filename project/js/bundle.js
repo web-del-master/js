@@ -64,12 +64,19 @@
   }, {}], 3: [function (require, module, exports) {
     function burger() {
       var btnBurg = document.querySelector('.burger'),
-          menuBurg = document.querySelectorAll('#menuBurg');
+          menuBurg = document.querySelector('.burger-menu');
+      console.log(menuBurg);
+      setInterval(startSize, 10);
+      function startSize() {
+        if (window.innerWidth < 768) {
+          btnBurg.style.display = "block";
+        } else {
+          btnBurg.style.display = "none";
+        };
+      }
 
       btnBurg.addEventListener('click', function () {
-        if (window.innerWith <= 768) {
-          menuBurg.style.display = "block";
-        }
+        menuBurg.classList.toggle("showBtn");
       });
     }module.exports = burger;
   }, {}], 4: [function (require, module, exports) {
