@@ -24,6 +24,7 @@
       var showall = require('../js/modules/showall.js');
       var sizeimg = require('../js/modules/sizeimg.js');
       var filter = require('../js/modules/filter.js');
+      var culck = require('../js/modules/culck.js');
 
       sliderTop();
       modalGift();
@@ -32,8 +33,9 @@
       showall();
       sizeimg();
       filter();
+      culck();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/filter.js": 3, "../js/modules/modalGift.js": 4, "../js/modules/showall.js": 5, "../js/modules/sizeimg.js": 6, "../js/modules/sliderDown.js": 7, "../js/modules/sliderTop.js": 8 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/culck.js": 3, "../js/modules/filter.js": 4, "../js/modules/modalGift.js": 5, "../js/modules/showall.js": 6, "../js/modules/sizeimg.js": 7, "../js/modules/sliderDown.js": 8, "../js/modules/sliderTop.js": 9 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -58,6 +60,80 @@
     }
     module.exports = accords;
   }, {}], 3: [function (require, module, exports) {
+    function culck() {
+      var sizePic = document.getElementById('size'),
+          materialPic = document.getElementById('material'),
+          optionsPic = document.getElementById('options'),
+          promocode = document.querySelector('.promocode'),
+          calcPrice = document.querySelector('.calc-price');
+
+      var h = 0;
+      var r = 0;
+      var n = 0;
+      var sale = 0;
+      var cul = 0;
+
+      function allCulck() {
+        var cost = 0;
+        if (h == 0 || r == 0) {
+          calcPrice.innerHTML = "Для расчета нужно выбрать размер картины и материал картины";
+          calcPrice.style.fontWeight = '350';
+          calcPrice.style.fontSize = '14px';
+          cul = 0;
+        } else {
+          cost = h + r + n;
+          calcPrice.innerHTML = cost;
+          calcPrice.style.fontWeight = '700';
+          calcPrice.style.fontSize = '50px';
+          cul = cost;
+        }
+        if (promocode.value === 'IWANTPOPART') {
+          salePrice();
+        }
+
+        console.log(cul);
+      };
+
+      function salePrice() {
+        if (!(cul == 0)) {
+          var cost = h + r + n - (h + r + n) / 100 * 30;
+          calcPrice.innerHTML = cost;
+          calcPrice.style.fontWeight = '700';
+          calcPrice.style.fontSize = '50px';
+        }
+      }
+
+      sizePic.addEventListener('change', function () {
+        var a = sizePic.options[sizePic.selectedIndex].value;
+        if (sizePic.options[sizePic.selectedIndex].classList.contains("none")) {
+          a = 0;
+        }
+        h = +a;
+        allCulck();
+      });
+      materialPic.addEventListener('change', function () {
+        var b = materialPic.options[materialPic.selectedIndex].value;
+        if (materialPic.options[materialPic.selectedIndex].classList.contains("none")) {
+          b = 0;
+        }
+        r = +b;
+        allCulck();
+      });
+      optionsPic.addEventListener('change', function () {
+        var g = optionsPic.options[optionsPic.selectedIndex].value;
+        if (optionsPic.options[optionsPic.selectedIndex].classList.contains("none")) {
+          g = 0;
+        }
+        n = +g;
+        allCulck();
+      });
+      promocode.addEventListener('change', function () {
+        if (promocode.value === 'IWANTPOPART') {
+          salePrice();
+        }
+      });
+    }module.exports = culck;
+  }, {}], 4: [function (require, module, exports) {
     function filter() {
 
       var getAll = document.querySelectorAll('.portfolio-block'),
@@ -130,7 +206,7 @@
         filters(guy, "guy");
       });
     }module.exports = filter;
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 5: [function (require, module, exports) {
     function modalGift() {
       // Моджальное окно с подарком 
       var modalTop = document.querySelector(".popup-gift"),
@@ -214,7 +290,7 @@
     };
 
     module.exports = modalGift;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 6: [function (require, module, exports) {
     function showall() {
       var styleBtn = document.querySelector('.button-transparent');
       var elem = document.getElementsByClassName('styles-2');
@@ -234,7 +310,7 @@
       });
     }
     module.exports = showall;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     function sizeimg() {
 
       var sizeelem = document.querySelectorAll('.sizes-block');
@@ -307,7 +383,7 @@
       });
     }
     module.exports = sizeimg;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -399,7 +475,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {

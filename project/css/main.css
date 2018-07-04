@@ -653,6 +653,7 @@ h4 {
 }
 .portfolio-wrapper {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .portfolio-block {
