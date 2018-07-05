@@ -7,7 +7,8 @@ function burger (){
 	    	if(window.innerWidth < 768){          		
           		btnBurg.style.display = "block" ;                  
 		     } else{
-          		btnBurg.style.display = "none";                   
+          		btnBurg.style.display = "none";
+          		menuBurg.style.display = "none";                   
 		      };
 	    }
 

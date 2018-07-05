@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let filter  = require('../js/modules/filter.js');
     let culck  = require('../js/modules/culck.js');
     let burger  = require('../js/modules/burger.js');
+    let my_ajax  = require('../js/modules/my_ajax.js');
     
     sliderTop();
     modalGift();
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     filter();
     culck();
     burger();
+    my_ajax();
 
 
 

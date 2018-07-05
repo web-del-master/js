@@ -28,8 +28,7 @@ function culck (){
          	if(promocode.value === 'IWANTPOPART'){
          	   salePrice()
          	} 
-
-         	 console.log(cul)
+         	
          };
          
         
@@ -76,7 +75,11 @@ function culck (){
          		calcPrice.style.fontWeight = '700'
          		calcPrice.style.fontSize = '50px'
          		cul = cost
-          	}          	
+          	}
+          	if(promocode.value === ''){
+
+          	}
+
           })
       
 

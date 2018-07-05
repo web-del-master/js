@@ -26,6 +26,7 @@
       var filter = require('../js/modules/filter.js');
       var culck = require('../js/modules/culck.js');
       var burger = require('../js/modules/burger.js');
+      var my_ajax = require('../js/modules/my_ajax.js');
 
       sliderTop();
       modalGift();
@@ -36,8 +37,9 @@
       filter();
       culck();
       burger();
+      my_ajax();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/burger.js": 3, "../js/modules/culck.js": 4, "../js/modules/filter.js": 5, "../js/modules/modalGift.js": 6, "../js/modules/showall.js": 7, "../js/modules/sizeimg.js": 8, "../js/modules/sliderDown.js": 9, "../js/modules/sliderTop.js": 10 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/burger.js": 3, "../js/modules/culck.js": 4, "../js/modules/filter.js": 5, "../js/modules/modalGift.js": 6, "../js/modules/my_ajax.js": 7, "../js/modules/showall.js": 8, "../js/modules/sizeimg.js": 9, "../js/modules/sliderDown.js": 10, "../js/modules/sliderTop.js": 11 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -72,6 +74,7 @@
           btnBurg.style.display = "block";
         } else {
           btnBurg.style.display = "none";
+          menuBurg.style.display = "none";
         };
       }
 
@@ -110,8 +113,6 @@
         if (promocode.value === 'IWANTPOPART') {
           salePrice();
         }
-
-        console.log(cul);
       };
 
       function salePrice() {
@@ -157,6 +158,7 @@
           calcPrice.style.fontSize = '50px';
           cul = cost;
         }
+        if (promocode.value === '') {}
       });
     }module.exports = culck;
   }, {}], 5: [function (require, module, exports) {
@@ -317,6 +319,72 @@
 
     module.exports = modalGift;
   }, {}], 7: [function (require, module, exports) {
+    function my_ajax() {
+      // form
+      var message = new Object();
+      message.loading = "Загрузка...";
+      message.success = " Спасибо, скоро мы с вами свяжемся!";
+      message.failure = " Что-то пошло не так...";
+      var patternName = /^[а-яёА-ЯЁ\s]+$/;
+      var patternMail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+      var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+      var bigForm = document.querySelector(".bigForm"),
+          bigFormInput = bigForm.getElementsByTagName("input"),
+          statusMessage = document.createElement('div');
+      statusMessage.classList.add('status');
+
+      var big_name = document.querySelector(".big_name");
+      big_name.addEventListener('change', function () {
+        var name = big_name.value;
+        if (name.search(patternName)) {
+          big_name.value = '';
+        }
+      });
+      var inputText = document.querySelector(".input-text");
+      inputText.addEventListener('change', function () {
+        var name = inputText.value;
+        if (name.search(patternName)) {
+          inputText.value = '';
+        }
+      });
+      var big_phone = document.querySelector('.big_phone');
+      big_phone.addEventListener('change', function () {
+        var name = big_phone.value;
+        if (name.search(phoneMy)) {
+          big_phone.value = '';
+        }
+      });
+
+      bigForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        bigForm.appendChild(statusMessage);
+        // ajax 
+        var request = new XMLHttpRequest();
+        request.open("POST", "./server.php", true);
+
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoder");
+
+        var formData = new FormData(bigForm); // передаем параметром нашу форму
+
+
+        request.send(formData);
+
+        request.onreadystatechange = function () {
+          if (request.readyState < 4) {
+            statusMessage.innerHTML = message.loading;
+          } else if (request.readyState === 4) {
+            if (request.status == 200 && request.status < 300) {
+              statusMessage.innerHTML = message.success;
+            }
+          }
+        };
+
+        for (var i = 0; i < bigFormInput.length; i++) {
+          bigFormInput[i].value = '';
+        }
+      });
+    }module.exports = my_ajax;
+  }, {}], 8: [function (require, module, exports) {
     function showall() {
       var styleBtn = document.querySelector('.button-transparent');
       var elem = document.getElementsByClassName('styles-2');
@@ -336,7 +404,7 @@
       });
     }
     module.exports = showall;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     function sizeimg() {
 
       var sizeelem = document.querySelectorAll('.sizes-block');
@@ -409,7 +477,7 @@
       });
     }
     module.exports = sizeimg;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -501,7 +569,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 10: [function (require, module, exports) {
+  }, {}], 11: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {
