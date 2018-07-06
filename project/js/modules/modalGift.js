@@ -8,7 +8,8 @@ function modalGift (){
       modalTop.style.display = "block";      
       modalTop.style.zIndex = "99";       
       fixedGift.style.display = "none";
-      clearInterval(scrolTime);       
+      clearInterval(scrolTime);
+      clearTimeout(modal60);       
      });
     
 // Назвначаем всем крестикам обработчик событий закрыть
@@ -32,6 +33,7 @@ function modalGift (){
         windowpopup.style.zIndex = "99";
         windowpopup.style.position = "fixed";
         clearInterval(scrolTime);
+        clearTimeout(modal60);
       })}
 
 
@@ -46,6 +48,7 @@ function modalGift (){
         		modalBtnConsultation.style.display = 'block';        		
         		modalBtnConsultation.style.zIndex = "99";
         		clearInterval(scrolTime);
+        		clearTimeout(modal60);
         	})
         }
 
@@ -80,6 +83,7 @@ function modalGift (){
          modalTop.style.zIndex = "99";       
          fixedGift.style.display = "none";
          clearInterval(scrolTime);
+         clearTimeout(modal60);
        }           
     }
      

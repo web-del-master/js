@@ -81,7 +81,7 @@
         };
       }
 
-      btnBurg.addEventListener('click', function () {
+      btnBurg.addEventListener('touchstart', function () {
         menuBurg.classList.toggle("showBtn");
       });
     }module.exports = burger;
@@ -378,6 +378,7 @@
         modalTop.style.zIndex = "99";
         fixedGift.style.display = "none";
         clearInterval(scrolTime);
+        clearTimeout(modal60);
       });
 
       // Назвначаем всем крестикам обработчик событий закрыть
@@ -402,6 +403,7 @@
           windowpopup.style.zIndex = "99";
           windowpopup.style.position = "fixed";
           clearInterval(scrolTime);
+          clearTimeout(modal60);
         });
       }
 
@@ -414,6 +416,7 @@
           modalBtnConsultation.style.display = 'block';
           modalBtnConsultation.style.zIndex = "99";
           clearInterval(scrolTime);
+          clearTimeout(modal60);
         });
       }
 
@@ -445,6 +448,7 @@
           modalTop.style.zIndex = "99";
           fixedGift.style.display = "none";
           clearInterval(scrolTime);
+          clearTimeout(modal60);
         }
       }
     };

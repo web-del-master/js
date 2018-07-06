@@ -11,7 +11,7 @@ function burger (){
 		      };
 	    }
 
-	    btnBurg.addEventListener('click', ()=>{           
+	    btnBurg.addEventListener('touchstart', ()=>{           
            	menuBurg.classList.toggle("showBtn");          
 	    });
 
