@@ -4,13 +4,15 @@ let message = new Object();
 message.loading = "Загрузка...";
 message.success = " Спасибо, скоро мы с вами свяжемся!";
 message.failure = " Что-то пошло не так...";
-    let patternName	= /^[а-яёА-ЯЁ\s]+$/;
-	let patternMail	= /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
-    let phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+   
 let bigForm = document.querySelector(".bigForm"),
     bigFormInput = bigForm.getElementsByTagName("input"),
     statusMessage = document.createElement('div');
     statusMessage.classList.add('status');
+    
+    let patternName	= /^[а-яёА-ЯЁ\s]+$/;
+	let patternMail	= /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+    let phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
 
  let big_name = document.querySelector(".big_name");
     big_name.addEventListener('change', ()=>{
@@ -33,6 +35,7 @@ let bigForm = document.querySelector(".bigForm"),
            big_phone.value = '';
         }
       });
+
 
     bigForm.addEventListener('submit', function(event){
     	event.preventDefault();

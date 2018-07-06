@@ -27,6 +27,8 @@
       var culck = require('../js/modules/culck.js');
       var burger = require('../js/modules/burger.js');
       var my_ajax = require('../js/modules/my_ajax.js');
+      var formOptions = require('../js/modules/formOptions.js');
+      var formPopup = require('../js/modules/formPupup.js');
 
       sliderTop();
       modalGift();
@@ -38,8 +40,10 @@
       culck();
       burger();
       my_ajax();
+      formOptions();
+      formPopup();
     });
-  }, { "../js/modules/accords.js": 2, "../js/modules/burger.js": 3, "../js/modules/culck.js": 4, "../js/modules/filter.js": 5, "../js/modules/modalGift.js": 6, "../js/modules/my_ajax.js": 7, "../js/modules/showall.js": 8, "../js/modules/sizeimg.js": 9, "../js/modules/sliderDown.js": 10, "../js/modules/sliderTop.js": 11 }], 2: [function (require, module, exports) {
+  }, { "../js/modules/accords.js": 2, "../js/modules/burger.js": 3, "../js/modules/culck.js": 4, "../js/modules/filter.js": 5, "../js/modules/formOptions.js": 6, "../js/modules/formPupup.js": 7, "../js/modules/modalGift.js": 8, "../js/modules/my_ajax.js": 9, "../js/modules/showall.js": 10, "../js/modules/sizeimg.js": 11, "../js/modules/sliderDown.js": 12, "../js/modules/sliderTop.js": 13 }], 2: [function (require, module, exports) {
     function accords() {
       var accordsBtn = document.getElementsByClassName('accordion-heading'),
           accordsBlock = document.getElementsByClassName('accordion-block');
@@ -67,7 +71,6 @@
     function burger() {
       var btnBurg = document.querySelector('.burger'),
           menuBurg = document.querySelector('.burger-menu');
-      console.log(menuBurg);
       setInterval(startSize, 10);
       function startSize() {
         if (window.innerWidth < 768) {
@@ -235,6 +238,127 @@
       });
     }module.exports = filter;
   }, {}], 6: [function (require, module, exports) {
+    function formOptions() {
+      var popupDesignForm = document.querySelector('.popupDesignForm'),
+          popupInput = popupDesignForm.getElementsByTagName("input"),
+          popupDesignFormName = document.querySelector('.popupDesignFormName'),
+          popupDesignFormPhone = document.querySelector('.popupDesignFormPhone'),
+          popupDesignFormText = document.querySelector('.popupDesignFormText'),
+          messageModal = document.querySelector('.messageModal'),
+          messageModalText = document.querySelector('#messageModalText');
+
+      var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+      var patternName = /^[а-яёА-ЯЁ\s]+$/;
+      messageModal.addEventListener('click', function () {
+        messageModal.style.display = "none";
+      });
+      popupDesignFormName.addEventListener('change', function () {
+        var name = popupDesignFormName.value;
+        if (name.search(patternName)) {
+          popupDesignFormName.value = '';
+        }
+      });
+      popupDesignFormText.addEventListener('change', function () {
+        var name = popupDesignFormText.value;
+        if (name.search(patternName)) {
+          popupDesignFormText.value = '';
+        }
+      });
+      popupDesignFormPhone.addEventListener('change', function () {
+        var name = popupDesignFormPhone.value;
+        if (name.search(phoneMy)) {
+          popupDesignFormPhone.value = '';
+        }
+      });
+
+      popupDesignForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // ajax 
+        var request = new XMLHttpRequest();
+        request.open("POST", "./server.php", true);
+
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoder");
+
+        var formData1 = new FormData(popupDesignForm); // передаем параметром нашу форму
+
+
+        request.send(formData1);
+
+        request.onreadystatechange = function () {
+          if (request.readyState < 4) {
+            messageModalText.innerHTML = "Ошибка";
+            messageModal.style.display = "block";
+            messageModal.style.zIndex = 800;
+          } else if (request.readyState === 4) {
+            if (request.status == 200 && request.status < 300) {
+              messageModal.style.display = "block";
+              messageModalText.innerHTML = "Спасибо";
+            }
+          }
+        };
+
+        for (var i = 0; i < popupInput.length; i++) {
+          popupInput[i].value = '';
+        }
+      });
+    }module.exports = formOptions;
+  }, {}], 7: [function (require, module, exports) {
+    function formPopup() {
+      var popupContentForm = document.querySelector('.popupContentForm'),
+          inputPopupContent = popupContentForm.getElementsByTagName('input'),
+          popupContentFormName = document.querySelector('.popupContentFormName'),
+          popupContentFormPhone = document.querySelector('.popupContentFormPhone'),
+          messageModal = document.querySelector('.messageModal'),
+          messageModalText = document.querySelector('#messageModalText');
+
+      var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+      var patternName = /^[а-яёА-ЯЁ\s]+$/;
+
+      popupContentFormName.addEventListener('change', function () {
+        var name = popupContentFormName.value;
+        if (name.search(patternName)) {
+          popupContentFormName.value = '';
+        }
+      });
+
+      popupContentFormPhone.addEventListener('change', function () {
+        var name = popupContentFormPhone.value;
+        if (name.search(phoneMy)) {
+          popupContentFormPhone.value = '';
+        }
+      });
+      popupContentForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // ajax 
+        var request = new XMLHttpRequest();
+        request.open("POST", "./server.php", true);
+
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoder");
+
+        var formData2 = new FormData(popupContentForm); // передаем параметром нашу форму
+
+
+        request.send(formData2);
+
+        request.onreadystatechange = function () {
+          if (request.readyState < 4) {
+            messageModalText.innerHTML = "Ошибка";
+            messageModal.style.display = "block";
+            messageModal.style.zIndex = 800;
+          } else if (request.readyState === 4) {
+            if (request.status == 200 && request.status < 300) {
+              messageModal.style.display = "block";
+              messageModalText.innerHTML = "Спасибо";
+            }
+          }
+        };
+
+        for (var i = 0; i < inputPopupContent.length; i++) {
+          inputPopupContent[i].value = '';
+        }
+      });
+    }module.exports = formPopup;
+  }, {}], 8: [function (require, module, exports) {
     function modalGift() {
       // Моджальное окно с подарком 
       var modalTop = document.querySelector(".popup-gift"),
@@ -318,20 +442,22 @@
     };
 
     module.exports = modalGift;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     function my_ajax() {
       // form
       var message = new Object();
       message.loading = "Загрузка...";
       message.success = " Спасибо, скоро мы с вами свяжемся!";
       message.failure = " Что-то пошло не так...";
-      var patternName = /^[а-яёА-ЯЁ\s]+$/;
-      var patternMail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
-      var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+
       var bigForm = document.querySelector(".bigForm"),
           bigFormInput = bigForm.getElementsByTagName("input"),
           statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
+
+      var patternName = /^[а-яёА-ЯЁ\s]+$/;
+      var patternMail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+      var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
 
       var big_name = document.querySelector(".big_name");
       big_name.addEventListener('change', function () {
@@ -384,7 +510,7 @@
         }
       });
     }module.exports = my_ajax;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     function showall() {
       var styleBtn = document.querySelector('.button-transparent');
       var elem = document.getElementsByClassName('styles-2');
@@ -404,7 +530,7 @@
       });
     }
     module.exports = showall;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 11: [function (require, module, exports) {
     function sizeimg() {
 
       var sizeelem = document.querySelectorAll('.sizes-block');
@@ -477,7 +603,7 @@
       });
     }
     module.exports = sizeimg;
-  }, {}], 10: [function (require, module, exports) {
+  }, {}], 12: [function (require, module, exports) {
     function sliderDown() {
 
       var getSliderDown = document.querySelectorAll('.feedback-slider-item'),
@@ -569,7 +695,7 @@
     }
 
     module.exports = sliderDown;
-  }, {}], 11: [function (require, module, exports) {
+  }, {}], 13: [function (require, module, exports) {
     function sliderTop() {
       var elementSlider = document.querySelectorAll(".main-slider-item-img");
       for (var i = 1; i < elementSlider.length; i++) {

@@ -662,10 +662,10 @@
 				<button class=popup-close>&times;</button>
 				<h4>Остались вопросы? Закажите обратный звонок</h4>
 				<div class=main-form>
-					<form class="form popupContentForm" action=mailer/smart.php method=POST>
-						<input type=text name=name placeholder="Ваше имя" required>
-						<input type=text name=phone placeholder="Ваш телефон" required>
-						<button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button>
+					<form class="form popupContentForm" action="./script.php" method=POST>
+						<input class="popupContentFormName" type=text name=name placeholder="Ваше имя" required>
+						<input class="popupContentFormPhone" type=text name=phone placeholder="Ваш телефон" required>
+						<button class="button button-order" >Получить консультацию</button>
 					</form>
 				</div>
 			</div>
@@ -685,7 +685,7 @@
 		<div class=popup-dialog>
 			<div class=popup-content>
 				<button class=popup-close>&times;</button>
-				<form action= method=POST class="popupDesignForm" enctype=multipart/form-data>
+				<form action="./script.php" method=POST class="popupDesignForm" enctype=multipart/form-data>
 					<h4>Заказать дизайн портрета</h4>
 					<div class=file_uploa>
 						<button type=button>Загрузить фотографию</button>
@@ -694,16 +694,19 @@
 					</div>
 					<div class=main-form>
 						<div class=form>
-							<input type=text name=name placeholder="Ваше имя" required>
-							<input type=text name=phone placeholder="Ваш телефон" required>
+							<input class="popupDesignFormName" type=text name=name placeholder="Ваше имя" required>
+							<input class="popupDesignFormPhone" type=text name=phone placeholder="Ваш телефон" required>
 							<input type=text name=email placeholder="Ваш e-mail">
-							<textarea name=message placeholder=Комментарий rows=2></textarea>
+							<textarea class="popupDesignFormText" name=message placeholder=Комментарий rows=2></textarea>
 							<button class="button button-order">Отправить дизайнеру</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
+	</div>
+	<div class="messageModal none">		
+		<p id="messageModalText"></p>
 	</div>	
 	<link rel=stylesheet href=css/bootstrap.css>
 	<link rel=stylesheet href=css/main.css>

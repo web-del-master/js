@@ -59,6 +59,32 @@ h3,
 h4 {
   font-family: 'Circe Extra Bold', sans-serif;
 }
+.none{
+  display:none; 
+}
+.messageModal{
+  z-index: 100;   
+  position: fixed;  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(178, 80, 188, 0.8);
+}
+#messageModalText{
+  z-index: 100;
+  position: fixed;
+  text-align: center;
+  max-width: 35rem;
+  left: 50%;
+  top: 20%;
+  background-color: #ededed;
+  border-radius: 4px;
+  transform: translateX(-50%) !important;
+  padding: 4rem 6rem 5rem 6rem;
+}
 .press{
 
 }

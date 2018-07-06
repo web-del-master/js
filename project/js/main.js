@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let culck  = require('../js/modules/culck.js');
     let burger  = require('../js/modules/burger.js');
     let my_ajax  = require('../js/modules/my_ajax.js');
+    let formOptions  = require('../js/modules/formOptions.js');
+    let formPopup  = require('../js/modules/formPupup.js');
     
     sliderTop();
     modalGift();
@@ -21,6 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
     culck();
     burger();
     my_ajax();
+    formOptions();
+    formPopup();
 
 
 

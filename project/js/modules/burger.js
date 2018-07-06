@@ -1,7 +1,6 @@
 function burger (){
 	let btnBurg = document.querySelector('.burger'),
-	    menuBurg = document.querySelector('.burger-menu');
-	    console.log(menuBurg)   
+	    menuBurg = document.querySelector('.burger-menu');	       
       setInterval(startSize, 10);
 	    function startSize (){
 	    	if(window.innerWidth < 768){          		
