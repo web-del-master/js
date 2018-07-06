@@ -245,12 +245,20 @@
           popupDesignFormPhone = document.querySelector('.popupDesignFormPhone'),
           popupDesignFormText = document.querySelector('.popupDesignFormText'),
           messageModal = document.querySelector('.messageModal'),
-          messageModalText = document.querySelector('#messageModalText');
+          messageModalText = document.querySelector('#messageModalText'),
+          popupDesignFormEmail = document.querySelector('.popupDesignFormEmail');
 
+      var patternMail = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
       var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
       var patternName = /^[а-яёА-ЯЁ\s]+$/;
       messageModal.addEventListener('click', function () {
         messageModal.style.display = "none";
+      });
+      popupDesignFormEmail.addEventListener('change', function () {
+        var name = popupDesignFormEmail.value;
+        if (name.search(patternMail)) {
+          popupDesignFormEmail.value = '';
+        }
       });
       popupDesignFormName.addEventListener('change', function () {
         var name = popupDesignFormName.value;
@@ -456,8 +464,16 @@
       statusMessage.classList.add('status');
 
       var patternName = /^[а-яёА-ЯЁ\s]+$/;
-      var patternMail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+      var patternMail = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
       var phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+
+      var big_mail = document.querySelector('.big_mail');
+      big_mail.addEventListener('change', function () {
+        var name = big_mail.value;
+        if (name.search(patternMail)) {
+          big_mail.value = '';
+        }
+      });
 
       var big_name = document.querySelector(".big_name");
       big_name.addEventListener('change', function () {

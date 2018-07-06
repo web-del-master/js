@@ -8,6 +8,7 @@ function formPopup () {
 
         let phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
 	    let patternName	= /^[а-яёА-ЯЁ\s]+$/;
+	    
  
  popupContentFormName.addEventListener('change', ()=>{
     	let name = popupContentFormName.value    	

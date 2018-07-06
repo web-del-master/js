@@ -5,14 +5,21 @@ function formOptions (){
 	    popupDesignFormPhone = document.querySelector('.popupDesignFormPhone'),
 	    popupDesignFormText = document.querySelector('.popupDesignFormText'),
 	    messageModal = document.querySelector('.messageModal'),
-	    messageModalText = document.querySelector('#messageModalText');
-	  
-
+	    messageModalText = document.querySelector('#messageModalText'),
+	    popupDesignFormEmail = document.querySelector('.popupDesignFormEmail');
+	    
+	    let patternMail	= /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm ;
 	    let phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
 	    let patternName	= /^[а-яёА-ЯЁ\s]+$/;
     messageModal.addEventListener('click', ()=>{
     	messageModal.style.display="none";
     })
+    popupDesignFormEmail.addEventListener('change', ()=>{
+    	let name = popupDesignFormEmail.value    	
+      	if(name.search(patternMail)){
+           popupDesignFormEmail.value = '';
+        }
+      });
     popupDesignFormName.addEventListener('change', ()=>{
     	let name = popupDesignFormName.value    	
       	if(name.search(patternName)){

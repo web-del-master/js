@@ -9,10 +9,18 @@ let bigForm = document.querySelector(".bigForm"),
     bigFormInput = bigForm.getElementsByTagName("input"),
     statusMessage = document.createElement('div');
     statusMessage.classList.add('status');
-    
+
     let patternName	= /^[а-яёА-ЯЁ\s]+$/;
-	let patternMail	= /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+	let patternMail	= /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm ;
     let phoneMy = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+
+    let big_mail = document.querySelector('.big_mail');
+    big_mail.addEventListener('change', ()=>{
+    	let name = big_mail.value    	
+      	if(name.search(patternMail)){
+           big_mail.value = '';
+        }
+      });
 
  let big_name = document.querySelector(".big_name");
     big_name.addEventListener('change', ()=>{
